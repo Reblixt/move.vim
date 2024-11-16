@@ -9,7 +9,6 @@ endif
 
 syn keyword   moveConditional match if else
 syn keyword   moveRepeat      loop while
-" syn keyword   moveStruct      struct nextgroup=moveIdentifier skipwhite skipempty
 syn keyword   moveStruct      struct nextgroup=moveStructName skipwhite skipempty
 syn keyword   moveKeyword     as break continue fun has let public return abort
 syn keyword   moveKeyword     module nextgroup=moveFuncName skipwhite skipempty
@@ -21,6 +20,7 @@ syn keyword   movePrimitive   u8 u16 u32 u64 u128 u256
 syn keyword   moveAbility     copy drop key store
 syn keyword   moveEnum        Option
 syn keyword   moveCommonType  UID ID Balance String vector
+syn keyword   moveAddressType address
 syn keyword   moveSelf        self
 syn keyword   moveBoolean     true false
 syn keyword   moveTodo        contained TODO FIXME XXX NB NOTE SAFETY
@@ -88,6 +88,7 @@ hi def link moveIdentifierPrime         moveIdentifier
 hi def link movePrimitive               moveType
 hi def link moveAbility                 moveType
 hi def link moveCommonType              moveType
+hi def link moveAddressType             moveType
 
 hi def link moveSigil                   StorageClass
 hi def link moveEscape                  Special
