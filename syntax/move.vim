@@ -9,7 +9,8 @@ endif
 
 syn keyword   moveConditional match if else
 syn keyword   moveRepeat      loop while
-syn keyword   moveStruct      struct nextgroup=moveIdentifier skipwhite skipempty
+" syn keyword   moveStruct      struct nextgroup=moveIdentifier skipwhite skipempty
+syn keyword   moveStruct      struct nextgroup=moveStructName skipwhite skipempty
 syn keyword   moveKeyword     as break continue fun has let public return abort
 syn keyword   moveKeyword     module nextgroup=moveFuncName skipwhite skipempty
 syn keyword   moveKeyword     public nextgroup=movePubScope skipwhite skipempty
@@ -55,6 +56,8 @@ syn match moveNamedAddr   display "@\w*"
 syn match moveDecNumber   display "\<[0-9][0-9_]*\%([u]\%(8\|16\|32\|64\|128\|256\)\)\="
 syn match moveHexNumber   display "\<0x[a-fA-F0-9_][a-fA-F0-9_]*\%([u]\%(8\|16\|32\|64\|128\|256\)\)\="
 
+syn match moveStructName "\<\k\+\>" contained
+
 syn region moveString        matchgroup=moveStringDelimiter start=+b"+ skip=+\\\\\|\\"+ end=+"+ contains=moveEscape,moveEscapeError,moveStrConcat
 syn region moveString        matchgroup=moveStringDelimiter start=+"+ skip=+\\\\\|\\"+ end=+"+ contains=moveEscape,moveEscapeError,moveStrConcat,@Spell
 syn region moveString        matchgroup=moveStringDelimiter start='b\?r\z(#*\)"' end='"\z1' contains=@Spell
@@ -99,6 +102,7 @@ hi def link moveSelf                    Constant
 hi def link moveOperator                Operator
 hi def link moveKeyword                 Keyword
 hi def link moveStruct                  Keyword
+hi def link moveStructName              Type
 hi def link movePubScopeDel             Delimiter
 hi def link movePubScopePkg             moveKeyword
 hi def link moveRepeat                  Conditional
