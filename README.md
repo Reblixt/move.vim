@@ -7,8 +7,19 @@ Install via your vim plugin manager of choice.
 
 For `vim-plug` add to your `.vimrc`:
 
+```vim
+Plug 'Reblixt/move.vim', {'branch': 'sui-move'}
 ```
-Plug 'yanganto/move.vim', {'branch': 'sui-move'}
+Then run `:PlugInstall`.
+
+or if using Neovim with lazy package manager
+
+Add this is your lazy configuration:
+```lua 
+return {
+  "Reblixt/move.vim",
+  event = "BufReadPre",
+  lazy = false,
+}
 ```
 
-Then run `:PlugInstall`.
